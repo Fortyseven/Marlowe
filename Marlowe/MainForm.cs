@@ -4,6 +4,7 @@ using System.ComponentModel;
 using System.Data;
 using System.Drawing;
 using System.Linq;
+using System.Net.Sockets;
 using System.Text;
 using System.Windows.Forms;
 
@@ -23,8 +24,26 @@ namespace Marlowe
 
         private void btnFoo_Click( object sender, EventArgs e )
         {
-            NewTab();
+            RichTextBox tab = NewTab();
+
+            try {
+                Tools.Whois.Get( "foo.com", cb => {
+                    tab.SynchronizedInvoke( () => {
+                        tab.AppendText("received response");
+                        TcpClient remote = (TcpClient)cb.AsyncState;
+                        tab.AppendText( remote.GetStream().ToString());
+                    } );
+                } );
+            }
+            catch ( Exception ex ) {
+                tab.AppendText( "EXCEPTION: " + ex.Message );
+            }
         }
+
+        //private void FooCallback( IAsyncResult res )
+        //{
+        //    Console.WriteLine( res.ToString() );
+        //}
 
         private RichTextBox NewTab()
         {
