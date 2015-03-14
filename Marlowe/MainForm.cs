@@ -21,5 +21,21 @@ namespace Marlowe
             Application.Exit();
         }
 
+        private void btnFoo_Click( object sender, EventArgs e )
+        {
+            NewTab();
+        }
+
+        private RichTextBox NewTab()
+        {
+            // TODO: Assign icon based on task tab has
+            TabPage newtabpage = new TabPage( "FooTab" );
+            RichTextBox rtb = new RichTextBox();
+            rtb.Dock = DockStyle.Fill;
+            newtabpage.Controls.Add( rtb );
+            tabControl1.Controls.Add( newtabpage );
+            tabControl1.SelectedTab = newtabpage;
+            return rtb;
+        }
     }
 }

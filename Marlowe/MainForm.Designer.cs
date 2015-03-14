@@ -29,6 +29,20 @@
         {
             System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(MainForm));
             this.menuStrip1 = new System.Windows.Forms.MenuStrip();
+            this.fileToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+            this.exitToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+            this.basicsToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+            this.pingToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+            this.nslookupToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+            this.whoisToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+            this.iPBlockToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+            this.digToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+            this.tracerouteToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+            this.fingerToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+            this.sMTPToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+            this.timeToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+            this.blacklistToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+            this.abuseLookupToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.toolsToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.zoneTransferToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.sMTPRelayCheckToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
@@ -41,10 +55,13 @@
             this.sLangCommandToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.decodeURLToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.parseEmailHeadersToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
-            this.fileToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
-            this.exitToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+            this.helpToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+            this.aboutMarloweToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.statusStrip1 = new System.Windows.Forms.StatusStrip();
             this.toolStripContainer1 = new System.Windows.Forms.ToolStripContainer();
+            this.tabControl1 = new System.Windows.Forms.TabControl();
+            this.tabPage1 = new System.Windows.Forms.TabPage();
+            this.richTextBox1 = new System.Windows.Forms.RichTextBox();
             this.toolStrip1 = new System.Windows.Forms.ToolStrip();
             this.toolStripButton1 = new System.Windows.Forms.ToolStripButton();
             this.toolStripButton2 = new System.Windows.Forms.ToolStripButton();
@@ -59,31 +76,14 @@
             this.toolStripButton11 = new System.Windows.Forms.ToolStripButton();
             this.toolStripButton12 = new System.Windows.Forms.ToolStripButton();
             this.toolStripButton13 = new System.Windows.Forms.ToolStripButton();
-            this.tabControl1 = new System.Windows.Forms.TabControl();
-            this.tabPage1 = new System.Windows.Forms.TabPage();
-            this.tabPage2 = new System.Windows.Forms.TabPage();
-            this.richTextBox1 = new System.Windows.Forms.RichTextBox();
-            this.helpToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
-            this.aboutMarloweToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
-            this.basicsToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
-            this.pingToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
-            this.nslookupToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
-            this.whoisToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
-            this.iPBlockToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
-            this.digToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
-            this.tracerouteToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
-            this.fingerToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
-            this.sMTPToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
-            this.timeToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
-            this.blacklistToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
-            this.abuseLookupToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+            this.btnFoo = new System.Windows.Forms.ToolStripButton();
             this.menuStrip1.SuspendLayout();
             this.toolStripContainer1.ContentPanel.SuspendLayout();
             this.toolStripContainer1.TopToolStripPanel.SuspendLayout();
             this.toolStripContainer1.SuspendLayout();
-            this.toolStrip1.SuspendLayout();
             this.tabControl1.SuspendLayout();
             this.tabPage1.SuspendLayout();
+            this.toolStrip1.SuspendLayout();
             this.SuspendLayout();
             // 
             // menuStrip1
@@ -98,6 +98,105 @@
             this.menuStrip1.Size = new System.Drawing.Size(784, 24);
             this.menuStrip1.TabIndex = 0;
             this.menuStrip1.Text = "menuStrip1";
+            // 
+            // fileToolStripMenuItem
+            // 
+            this.fileToolStripMenuItem.DropDownItems.AddRange(new System.Windows.Forms.ToolStripItem[] {
+            this.exitToolStripMenuItem});
+            this.fileToolStripMenuItem.Name = "fileToolStripMenuItem";
+            this.fileToolStripMenuItem.Size = new System.Drawing.Size(37, 20);
+            this.fileToolStripMenuItem.Text = "&File";
+            // 
+            // exitToolStripMenuItem
+            // 
+            this.exitToolStripMenuItem.Name = "exitToolStripMenuItem";
+            this.exitToolStripMenuItem.Size = new System.Drawing.Size(92, 22);
+            this.exitToolStripMenuItem.Text = "E&xit";
+            this.exitToolStripMenuItem.Click += new System.EventHandler(this.exitToolStripMenuItem_Click);
+            // 
+            // basicsToolStripMenuItem
+            // 
+            this.basicsToolStripMenuItem.DropDownItems.AddRange(new System.Windows.Forms.ToolStripItem[] {
+            this.pingToolStripMenuItem,
+            this.nslookupToolStripMenuItem,
+            this.whoisToolStripMenuItem,
+            this.iPBlockToolStripMenuItem,
+            this.digToolStripMenuItem,
+            this.tracerouteToolStripMenuItem,
+            this.fingerToolStripMenuItem,
+            this.sMTPToolStripMenuItem,
+            this.timeToolStripMenuItem,
+            this.blacklistToolStripMenuItem,
+            this.abuseLookupToolStripMenuItem});
+            this.basicsToolStripMenuItem.Name = "basicsToolStripMenuItem";
+            this.basicsToolStripMenuItem.Size = new System.Drawing.Size(51, 20);
+            this.basicsToolStripMenuItem.Text = "Basics";
+            // 
+            // pingToolStripMenuItem
+            // 
+            this.pingToolStripMenuItem.Name = "pingToolStripMenuItem";
+            this.pingToolStripMenuItem.Size = new System.Drawing.Size(150, 22);
+            this.pingToolStripMenuItem.Text = "&Ping";
+            // 
+            // nslookupToolStripMenuItem
+            // 
+            this.nslookupToolStripMenuItem.Name = "nslookupToolStripMenuItem";
+            this.nslookupToolStripMenuItem.Size = new System.Drawing.Size(150, 22);
+            this.nslookupToolStripMenuItem.Text = "&nslookup";
+            // 
+            // whoisToolStripMenuItem
+            // 
+            this.whoisToolStripMenuItem.Name = "whoisToolStripMenuItem";
+            this.whoisToolStripMenuItem.Size = new System.Drawing.Size(150, 22);
+            this.whoisToolStripMenuItem.Text = "&Whois";
+            // 
+            // iPBlockToolStripMenuItem
+            // 
+            this.iPBlockToolStripMenuItem.Name = "iPBlockToolStripMenuItem";
+            this.iPBlockToolStripMenuItem.Size = new System.Drawing.Size(150, 22);
+            this.iPBlockToolStripMenuItem.Text = "&IP Block";
+            // 
+            // digToolStripMenuItem
+            // 
+            this.digToolStripMenuItem.Name = "digToolStripMenuItem";
+            this.digToolStripMenuItem.Size = new System.Drawing.Size(150, 22);
+            this.digToolStripMenuItem.Text = "&Dig";
+            // 
+            // tracerouteToolStripMenuItem
+            // 
+            this.tracerouteToolStripMenuItem.Name = "tracerouteToolStripMenuItem";
+            this.tracerouteToolStripMenuItem.Size = new System.Drawing.Size(150, 22);
+            this.tracerouteToolStripMenuItem.Text = "&Traceroute";
+            // 
+            // fingerToolStripMenuItem
+            // 
+            this.fingerToolStripMenuItem.Name = "fingerToolStripMenuItem";
+            this.fingerToolStripMenuItem.Size = new System.Drawing.Size(150, 22);
+            this.fingerToolStripMenuItem.Text = "&Finger";
+            // 
+            // sMTPToolStripMenuItem
+            // 
+            this.sMTPToolStripMenuItem.Name = "sMTPToolStripMenuItem";
+            this.sMTPToolStripMenuItem.Size = new System.Drawing.Size(150, 22);
+            this.sMTPToolStripMenuItem.Text = "&SMTP Verify";
+            // 
+            // timeToolStripMenuItem
+            // 
+            this.timeToolStripMenuItem.Name = "timeToolStripMenuItem";
+            this.timeToolStripMenuItem.Size = new System.Drawing.Size(150, 22);
+            this.timeToolStripMenuItem.Text = "Ti&me";
+            // 
+            // blacklistToolStripMenuItem
+            // 
+            this.blacklistToolStripMenuItem.Name = "blacklistToolStripMenuItem";
+            this.blacklistToolStripMenuItem.Size = new System.Drawing.Size(150, 22);
+            this.blacklistToolStripMenuItem.Text = "&Blacklist";
+            // 
+            // abuseLookupToolStripMenuItem
+            // 
+            this.abuseLookupToolStripMenuItem.Name = "abuseLookupToolStripMenuItem";
+            this.abuseLookupToolStripMenuItem.Size = new System.Drawing.Size(150, 22);
+            this.abuseLookupToolStripMenuItem.Text = "&Abuse Lookup";
             // 
             // toolsToolStripMenuItem
             // 
@@ -183,20 +282,19 @@
             this.parseEmailHeadersToolStripMenuItem.Size = new System.Drawing.Size(185, 22);
             this.parseEmailHeadersToolStripMenuItem.Text = "Parse E-mail Headers";
             // 
-            // fileToolStripMenuItem
+            // helpToolStripMenuItem
             // 
-            this.fileToolStripMenuItem.DropDownItems.AddRange(new System.Windows.Forms.ToolStripItem[] {
-            this.exitToolStripMenuItem});
-            this.fileToolStripMenuItem.Name = "fileToolStripMenuItem";
-            this.fileToolStripMenuItem.Size = new System.Drawing.Size(37, 20);
-            this.fileToolStripMenuItem.Text = "&File";
+            this.helpToolStripMenuItem.DropDownItems.AddRange(new System.Windows.Forms.ToolStripItem[] {
+            this.aboutMarloweToolStripMenuItem});
+            this.helpToolStripMenuItem.Name = "helpToolStripMenuItem";
+            this.helpToolStripMenuItem.Size = new System.Drawing.Size(44, 20);
+            this.helpToolStripMenuItem.Text = "&Help";
             // 
-            // exitToolStripMenuItem
+            // aboutMarloweToolStripMenuItem
             // 
-            this.exitToolStripMenuItem.Name = "exitToolStripMenuItem";
-            this.exitToolStripMenuItem.Size = new System.Drawing.Size(152, 22);
-            this.exitToolStripMenuItem.Text = "E&xit";
-            this.exitToolStripMenuItem.Click += new System.EventHandler(this.exitToolStripMenuItem_Click);
+            this.aboutMarloweToolStripMenuItem.Name = "aboutMarloweToolStripMenuItem";
+            this.aboutMarloweToolStripMenuItem.Size = new System.Drawing.Size(156, 22);
+            this.aboutMarloweToolStripMenuItem.Text = "&About Marlowe";
             // 
             // statusStrip1
             // 
@@ -227,6 +325,41 @@
             // 
             this.toolStripContainer1.TopToolStripPanel.Controls.Add(this.toolStrip1);
             // 
+            // tabControl1
+            // 
+            this.tabControl1.Controls.Add(this.tabPage1);
+            this.tabControl1.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.tabControl1.HotTrack = true;
+            this.tabControl1.Location = new System.Drawing.Point(0, 0);
+            this.tabControl1.Margin = new System.Windows.Forms.Padding(3, 4, 3, 4);
+            this.tabControl1.Name = "tabControl1";
+            this.tabControl1.SelectedIndex = 0;
+            this.tabControl1.Size = new System.Drawing.Size(784, 477);
+            this.tabControl1.TabIndex = 3;
+            // 
+            // tabPage1
+            // 
+            this.tabPage1.Controls.Add(this.richTextBox1);
+            this.tabPage1.Location = new System.Drawing.Point(4, 22);
+            this.tabPage1.Margin = new System.Windows.Forms.Padding(3, 4, 3, 4);
+            this.tabPage1.Name = "tabPage1";
+            this.tabPage1.Padding = new System.Windows.Forms.Padding(3, 4, 3, 4);
+            this.tabPage1.Size = new System.Drawing.Size(776, 451);
+            this.tabPage1.TabIndex = 0;
+            this.tabPage1.Text = "tabPage1";
+            this.tabPage1.UseVisualStyleBackColor = true;
+            // 
+            // richTextBox1
+            // 
+            this.richTextBox1.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.richTextBox1.Location = new System.Drawing.Point(3, 4);
+            this.richTextBox1.Margin = new System.Windows.Forms.Padding(0);
+            this.richTextBox1.Name = "richTextBox1";
+            this.richTextBox1.ReadOnly = true;
+            this.richTextBox1.Size = new System.Drawing.Size(770, 443);
+            this.richTextBox1.TabIndex = 0;
+            this.richTextBox1.Text = "";
+            // 
             // toolStrip1
             // 
             this.toolStrip1.Dock = System.Windows.Forms.DockStyle.None;
@@ -243,7 +376,8 @@
             this.toolStripButton10,
             this.toolStripButton11,
             this.toolStripButton12,
-            this.toolStripButton13});
+            this.toolStripButton13,
+            this.btnFoo});
             this.toolStrip1.Location = new System.Drawing.Point(0, 0);
             this.toolStrip1.Name = "toolStrip1";
             this.toolStrip1.Size = new System.Drawing.Size(784, 38);
@@ -367,150 +501,17 @@
             this.toolStripButton13.Text = "abuse@";
             this.toolStripButton13.TextImageRelation = System.Windows.Forms.TextImageRelation.ImageAboveText;
             // 
-            // tabControl1
+            // btnFoo
             // 
-            this.tabControl1.Controls.Add(this.tabPage1);
-            this.tabControl1.Controls.Add(this.tabPage2);
-            this.tabControl1.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.tabControl1.HotTrack = true;
-            this.tabControl1.Location = new System.Drawing.Point(0, 0);
-            this.tabControl1.Margin = new System.Windows.Forms.Padding(3, 4, 3, 4);
-            this.tabControl1.Name = "tabControl1";
-            this.tabControl1.SelectedIndex = 0;
-            this.tabControl1.Size = new System.Drawing.Size(784, 477);
-            this.tabControl1.TabIndex = 3;
-            // 
-            // tabPage1
-            // 
-            this.tabPage1.Controls.Add(this.richTextBox1);
-            this.tabPage1.Location = new System.Drawing.Point(4, 22);
-            this.tabPage1.Margin = new System.Windows.Forms.Padding(3, 4, 3, 4);
-            this.tabPage1.Name = "tabPage1";
-            this.tabPage1.Padding = new System.Windows.Forms.Padding(3, 4, 3, 4);
-            this.tabPage1.Size = new System.Drawing.Size(776, 451);
-            this.tabPage1.TabIndex = 0;
-            this.tabPage1.Text = "tabPage1";
-            this.tabPage1.UseVisualStyleBackColor = true;
-            // 
-            // tabPage2
-            // 
-            this.tabPage2.Location = new System.Drawing.Point(4, 21);
-            this.tabPage2.Margin = new System.Windows.Forms.Padding(3, 4, 3, 4);
-            this.tabPage2.Name = "tabPage2";
-            this.tabPage2.Padding = new System.Windows.Forms.Padding(3, 4, 3, 4);
-            this.tabPage2.Size = new System.Drawing.Size(776, 437);
-            this.tabPage2.TabIndex = 1;
-            this.tabPage2.Text = "tabPage2";
-            this.tabPage2.UseVisualStyleBackColor = true;
-            // 
-            // richTextBox1
-            // 
-            this.richTextBox1.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.richTextBox1.Location = new System.Drawing.Point(3, 4);
-            this.richTextBox1.Margin = new System.Windows.Forms.Padding(0);
-            this.richTextBox1.Name = "richTextBox1";
-            this.richTextBox1.ReadOnly = true;
-            this.richTextBox1.Size = new System.Drawing.Size(770, 443);
-            this.richTextBox1.TabIndex = 0;
-            this.richTextBox1.Text = "";
-            // 
-            // helpToolStripMenuItem
-            // 
-            this.helpToolStripMenuItem.DropDownItems.AddRange(new System.Windows.Forms.ToolStripItem[] {
-            this.aboutMarloweToolStripMenuItem});
-            this.helpToolStripMenuItem.Name = "helpToolStripMenuItem";
-            this.helpToolStripMenuItem.Size = new System.Drawing.Size(44, 20);
-            this.helpToolStripMenuItem.Text = "&Help";
-            // 
-            // aboutMarloweToolStripMenuItem
-            // 
-            this.aboutMarloweToolStripMenuItem.Name = "aboutMarloweToolStripMenuItem";
-            this.aboutMarloweToolStripMenuItem.Size = new System.Drawing.Size(156, 22);
-            this.aboutMarloweToolStripMenuItem.Text = "&About Marlowe";
-            // 
-            // basicsToolStripMenuItem
-            // 
-            this.basicsToolStripMenuItem.DropDownItems.AddRange(new System.Windows.Forms.ToolStripItem[] {
-            this.pingToolStripMenuItem,
-            this.nslookupToolStripMenuItem,
-            this.whoisToolStripMenuItem,
-            this.iPBlockToolStripMenuItem,
-            this.digToolStripMenuItem,
-            this.tracerouteToolStripMenuItem,
-            this.fingerToolStripMenuItem,
-            this.sMTPToolStripMenuItem,
-            this.timeToolStripMenuItem,
-            this.blacklistToolStripMenuItem,
-            this.abuseLookupToolStripMenuItem});
-            this.basicsToolStripMenuItem.Name = "basicsToolStripMenuItem";
-            this.basicsToolStripMenuItem.Size = new System.Drawing.Size(51, 20);
-            this.basicsToolStripMenuItem.Text = "Basics";
-            // 
-            // pingToolStripMenuItem
-            // 
-            this.pingToolStripMenuItem.Name = "pingToolStripMenuItem";
-            this.pingToolStripMenuItem.Size = new System.Drawing.Size(152, 22);
-            this.pingToolStripMenuItem.Text = "&Ping";
-            // 
-            // nslookupToolStripMenuItem
-            // 
-            this.nslookupToolStripMenuItem.Name = "nslookupToolStripMenuItem";
-            this.nslookupToolStripMenuItem.Size = new System.Drawing.Size(152, 22);
-            this.nslookupToolStripMenuItem.Text = "&nslookup";
-            // 
-            // whoisToolStripMenuItem
-            // 
-            this.whoisToolStripMenuItem.Name = "whoisToolStripMenuItem";
-            this.whoisToolStripMenuItem.Size = new System.Drawing.Size(152, 22);
-            this.whoisToolStripMenuItem.Text = "&Whois";
-            // 
-            // iPBlockToolStripMenuItem
-            // 
-            this.iPBlockToolStripMenuItem.Name = "iPBlockToolStripMenuItem";
-            this.iPBlockToolStripMenuItem.Size = new System.Drawing.Size(152, 22);
-            this.iPBlockToolStripMenuItem.Text = "&IP Block";
-            // 
-            // digToolStripMenuItem
-            // 
-            this.digToolStripMenuItem.Name = "digToolStripMenuItem";
-            this.digToolStripMenuItem.Size = new System.Drawing.Size(152, 22);
-            this.digToolStripMenuItem.Text = "&Dig";
-            // 
-            // tracerouteToolStripMenuItem
-            // 
-            this.tracerouteToolStripMenuItem.Name = "tracerouteToolStripMenuItem";
-            this.tracerouteToolStripMenuItem.Size = new System.Drawing.Size(152, 22);
-            this.tracerouteToolStripMenuItem.Text = "&Traceroute";
-            // 
-            // fingerToolStripMenuItem
-            // 
-            this.fingerToolStripMenuItem.Name = "fingerToolStripMenuItem";
-            this.fingerToolStripMenuItem.Size = new System.Drawing.Size(152, 22);
-            this.fingerToolStripMenuItem.Text = "&Finger";
-            // 
-            // sMTPToolStripMenuItem
-            // 
-            this.sMTPToolStripMenuItem.Name = "sMTPToolStripMenuItem";
-            this.sMTPToolStripMenuItem.Size = new System.Drawing.Size(152, 22);
-            this.sMTPToolStripMenuItem.Text = "&SMTP Verify";
-            // 
-            // timeToolStripMenuItem
-            // 
-            this.timeToolStripMenuItem.Name = "timeToolStripMenuItem";
-            this.timeToolStripMenuItem.Size = new System.Drawing.Size(152, 22);
-            this.timeToolStripMenuItem.Text = "Ti&me";
-            // 
-            // blacklistToolStripMenuItem
-            // 
-            this.blacklistToolStripMenuItem.Name = "blacklistToolStripMenuItem";
-            this.blacklistToolStripMenuItem.Size = new System.Drawing.Size(152, 22);
-            this.blacklistToolStripMenuItem.Text = "&Blacklist";
-            // 
-            // abuseLookupToolStripMenuItem
-            // 
-            this.abuseLookupToolStripMenuItem.Name = "abuseLookupToolStripMenuItem";
-            this.abuseLookupToolStripMenuItem.Size = new System.Drawing.Size(152, 22);
-            this.abuseLookupToolStripMenuItem.Text = "&Abuse Lookup";
+            this.btnFoo.Alignment = System.Windows.Forms.ToolStripItemAlignment.Right;
+            this.btnFoo.Image = ((System.Drawing.Image)(resources.GetObject("btnFoo.Image")));
+            this.btnFoo.ImageTransparentColor = System.Drawing.Color.Magenta;
+            this.btnFoo.Name = "btnFoo";
+            this.btnFoo.Size = new System.Drawing.Size(35, 35);
+            this.btnFoo.Text = "FOO";
+            this.btnFoo.TextDirection = System.Windows.Forms.ToolStripTextDirection.Horizontal;
+            this.btnFoo.TextImageRelation = System.Windows.Forms.TextImageRelation.ImageAboveText;
+            this.btnFoo.Click += new System.EventHandler(this.btnFoo_Click);
             // 
             // MainForm
             // 
@@ -532,10 +533,10 @@
             this.toolStripContainer1.TopToolStripPanel.PerformLayout();
             this.toolStripContainer1.ResumeLayout(false);
             this.toolStripContainer1.PerformLayout();
-            this.toolStrip1.ResumeLayout(false);
-            this.toolStrip1.PerformLayout();
             this.tabControl1.ResumeLayout(false);
             this.tabPage1.ResumeLayout(false);
+            this.toolStrip1.ResumeLayout(false);
+            this.toolStrip1.PerformLayout();
             this.ResumeLayout(false);
             this.PerformLayout();
 
@@ -576,7 +577,6 @@
         private System.Windows.Forms.ToolStripButton toolStripButton13;
         private System.Windows.Forms.TabControl tabControl1;
         private System.Windows.Forms.TabPage tabPage1;
-        private System.Windows.Forms.TabPage tabPage2;
         private System.Windows.Forms.RichTextBox richTextBox1;
         private System.Windows.Forms.ToolStripMenuItem helpToolStripMenuItem;
         private System.Windows.Forms.ToolStripMenuItem aboutMarloweToolStripMenuItem;
@@ -592,6 +592,7 @@
         private System.Windows.Forms.ToolStripMenuItem timeToolStripMenuItem;
         private System.Windows.Forms.ToolStripMenuItem blacklistToolStripMenuItem;
         private System.Windows.Forms.ToolStripMenuItem abuseLookupToolStripMenuItem;
+        private System.Windows.Forms.ToolStripButton btnFoo;
     }
 }
 
