@@ -1,9 +1,6 @@
 ﻿using System;
-using System.Collections.Generic;
-using System.Linq;
 using System.Net;
 using System.Net.Sockets;
-using System.Text;
 
 namespace Marlowe.Tools
 {
@@ -39,7 +36,7 @@ namespace Marlowe.Tools
             //"whois.nic.tj",         // DNR
             //"whois.nic.uk",         // TO
             "whois.ja.net",
-            "nii-server.isi.edu",
+            "nii-server.isi.edu"
             //"rwhois.exodus.net",    // TO
             //"rwhois.digex.net",     // DNR
             //"whois.geektools.com"   // TO
@@ -74,7 +71,7 @@ namespace Marlowe.Tools
         static byte[] GetBytes( string str )
         {
             byte[] bytes = new byte[ str.Length * sizeof( char ) ];
-            System.Buffer.BlockCopy( str.ToCharArray(), 0, bytes, 0, bytes.Length );
+            Buffer.BlockCopy( str.ToCharArray(), 0, bytes, 0, bytes.Length );
             return bytes;
         }
     }
