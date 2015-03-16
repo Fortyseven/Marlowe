@@ -1,6 +1,9 @@
 ﻿using System;
 using System.Net;
 using System.Net.Sockets;
+using System.Security.AccessControl;
+using System.Text;
+using System.Windows.Forms;
 
 namespace Marlowe.Tools
 {
@@ -12,7 +15,7 @@ namespace Marlowe.Tools
         {
             "whois.internic.net",
             "whois.arin.net",
-            //"whois.ripe.net",       // TO
+                    "whois.ripe.net",      
             "whois.nic.am",
             "whois.aunic.net",
             //"whois.cdnnet.ca",      // DNR
@@ -45,32 +48,37 @@ namespace Marlowe.Tools
         public const string DEFAULT_SERVER = "whois.iana.org";
         public const int WHOIS_PORT = 43;
 
-        static public void Get( string query, string whois_server, AsyncCallback ar )
+        static public string Get( string query, string whois_server, AsyncCallback ar = null )
         {
-            //TcpClient tcp = new TcpClient();
-            //tcp.BeginConnect(server_host, WHOIS_PORT, new AsyncCallback(), )
+            try {
+                IPAddress ip = Dns.GetHostEntry( whois_server ).AddressList[ 0 ];
+                IPEndPoint ip_end_point = new IPEndPoint( ip, WHOIS_PORT );
 
-            TcpClient tcp = new TcpClient();
-            IPAddress ip = Dns.GetHostEntry( whois_server ).AddressList[ 0 ];
-            IPEndPoint ip_end_point = new IPEndPoint( ip, WHOIS_PORT );
+                Socket sock = new Socket( AddressFamily.InterNetwork, SocketType.Stream, ProtocolType.Tcp );
 
-            tcp.Connect( ip_end_point );
-            var stream = tcp.GetStream();
+                sock.ReceiveBufferSize = 8192;
+                sock.SendTimeout = 1000;
+                sock.ReceiveTimeout = 1000;
+                sock.NoDelay = true;
 
-            stream.BeginWrite( GetBytes( query ), 0, query.Length - 1, ar, null );
-        }
+                sock.Connect( ip_end_point );
 
-        private static void WhoisResponseCallback( IAsyncResult ar )
-        {
-            Console.WriteLine( ar.ToString() );
-            throw new NotImplementedException();
-        }
+                sock.Send( System.Text.Encoding.ASCII.GetBytes( query + "\n" ) );
 
-        static byte[] GetBytes( string str )
-        {
-            byte[] bytes = new byte[ str.Length * sizeof( char ) ];
-            Buffer.BlockCopy( str.ToCharArray(), 0, bytes, 0, bytes.Length );
-            return bytes;
+                StringBuilder results = new StringBuilder();
+                byte[] buffer = new byte[ 8192 ];
+
+                int len = 0;
+                while ( ( len = sock.Receive( buffer ) ) > 0 ) {
+                    results.Append( System.Text.Encoding.ASCII.GetString( buffer, 0, len ) );
+                }
+                sock.Close();
+                return results.ToString();
+            }
+            catch ( Exception e ) {
+                MessageBox.Show( e.Message, "SOCKET ERROR", MessageBoxButtons.OK, MessageBoxIcon.Error );
+                return "SOCKET ERROR: " + e.Message + "\n";
+            }
         }
     }
 }

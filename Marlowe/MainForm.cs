@@ -64,6 +64,7 @@ namespace Marlowe
             }
 
             RichTextBox rtb = new RichTextBox();
+
             rtb.Dock = DockStyle.Fill;
             rtb.Font = _default_tab_font;
 
@@ -129,17 +130,17 @@ namespace Marlowe
         /// <param name="value"></param>
         private void LookAtWhois( string value )
         {
+            if ( value.Length == 0 )
+                return;
+
             RichTextBox tab = NewTab( ToolType.WHOIS, value );
 
+            tab.AppendText( DateTime.Now.ToLocalTime() + " whois " + value + "@" + cbWhoisServer.Text.Trim() + "\n" );
+            tab.AppendText( "---------------------------------------------------------------\n" );
+
             try {
-                Tools.Whois.Get( "foo.com", cbWhoisServer.Text.Trim(),
-                    cb => {
-                        tab.SynchronizedInvoke( () => {
-                            tab.AppendText( "received response" );
-                            TcpClient remote = (TcpClient)cb.AsyncState;
-                            tab.AppendText( remote.GetStream().ToString() );
-                        } );
-                    } );
+                tab.AppendText( Tools.Whois.Get( "foo.com", cbWhoisServer.Text.Trim() ) );
+                tab.AppendText( "---------------------------------------------------------------\n" );
             }
             catch ( Exception ex ) {
                 tab.AppendText( "EXCEPTION: " + ex.Message );
