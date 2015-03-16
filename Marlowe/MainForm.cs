@@ -43,10 +43,6 @@ namespace Marlowe
             Application.Exit();
         }
 
-        private void btnFoo_Click( object sender, EventArgs e )
-        {
-        }
-
         private RichTextBox NewTab( ToolType tool_type, string value )
         {
             int imagelist_index = 0;

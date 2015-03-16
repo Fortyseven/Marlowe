@@ -519,7 +519,6 @@
             this.btnFoo.Text = "FOO";
             this.btnFoo.TextDirection = System.Windows.Forms.ToolStripTextDirection.Horizontal;
             this.btnFoo.TextImageRelation = System.Windows.Forms.TextImageRelation.ImageAboveText;
-            this.btnFoo.Click += new System.EventHandler(this.btnFoo_Click);
             // 
             // cbAddress
             // 
