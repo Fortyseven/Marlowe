@@ -31,6 +31,8 @@ namespace Marlowe
             ABUSE
         }
 
+        private Font _default_tab_font;
+
         public MainForm()
         {
             InitializeComponent();
@@ -64,15 +66,21 @@ namespace Marlowe
                     tool_name = "DNS";
                     break;
             }
-            // TODO: Assign icon based on task tab has
-            TabPage newtabpage = new TabPage();
-            newtabpage.ImageIndex = imagelist_index;
-            newtabpage.Text = value + " [" + tool_name + "]";
+
             RichTextBox rtb = new RichTextBox();
             rtb.Dock = DockStyle.Fill;
+            rtb.Font = _default_tab_font;
+
+            TabPage newtabpage = new TabPage();
+
+            newtabpage.ImageIndex = imagelist_index;
+            newtabpage.Text = value + " [" + tool_name + "]";
             newtabpage.Controls.Add( rtb );
+
             tabControl1.Controls.Add( newtabpage );
             tabControl1.SelectedTab = newtabpage;
+
+            newtabpage.Focus();
             return rtb;
         }
 
@@ -154,6 +162,7 @@ namespace Marlowe
 
         private void MainForm_Shown( object sender, EventArgs e )
         {
+            _default_tab_font = new Font( "Consolas", 12.0f, FontStyle.Regular );
             cbWhoisServer.SelectedIndex = 0;
             cbAddress.Focus();
         }
