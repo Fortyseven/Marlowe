@@ -62,27 +62,38 @@
             this.tabControl1 = new System.Windows.Forms.TabControl();
             this.tabPage1 = new System.Windows.Forms.TabPage();
             this.richTextBox1 = new System.Windows.Forms.RichTextBox();
+            this.toolStrip2 = new System.Windows.Forms.ToolStrip();
             this.toolStrip1 = new System.Windows.Forms.ToolStrip();
-            this.toolStripButton1 = new System.Windows.Forms.ToolStripButton();
-            this.toolStripButton2 = new System.Windows.Forms.ToolStripButton();
-            this.toolStripButton3 = new System.Windows.Forms.ToolStripButton();
-            this.toolStripButton4 = new System.Windows.Forms.ToolStripButton();
-            this.toolStripButton5 = new System.Windows.Forms.ToolStripButton();
-            this.toolStripButton6 = new System.Windows.Forms.ToolStripButton();
-            this.toolStripButton7 = new System.Windows.Forms.ToolStripButton();
-            this.toolStripButton8 = new System.Windows.Forms.ToolStripButton();
-            this.toolStripButton9 = new System.Windows.Forms.ToolStripButton();
-            this.toolStripButton10 = new System.Windows.Forms.ToolStripButton();
-            this.toolStripButton11 = new System.Windows.Forms.ToolStripButton();
-            this.toolStripButton12 = new System.Windows.Forms.ToolStripButton();
-            this.toolStripButton13 = new System.Windows.Forms.ToolStripButton();
+            this.btnPing = new System.Windows.Forms.ToolStripButton();
+            this.btnDNS = new System.Windows.Forms.ToolStripButton();
+            this.btnWhois = new System.Windows.Forms.ToolStripButton();
+            this.btnIPBlock = new System.Windows.Forms.ToolStripButton();
+            this.btnDig = new System.Windows.Forms.ToolStripButton();
+            this.btnTrace = new System.Windows.Forms.ToolStripButton();
+            this.btnFinger = new System.Windows.Forms.ToolStripButton();
+            this.btnSMTP = new System.Windows.Forms.ToolStripButton();
+            this.btnTime = new System.Windows.Forms.ToolStripButton();
+            this.btnWeb = new System.Windows.Forms.ToolStripButton();
+            this.btnAwake = new System.Windows.Forms.ToolStripButton();
+            this.btnRBL = new System.Windows.Forms.ToolStripButton();
+            this.btnAbuseAt = new System.Windows.Forms.ToolStripButton();
             this.btnFoo = new System.Windows.Forms.ToolStripButton();
+            this.cbAddress = new System.Windows.Forms.ToolStripComboBox();
+            this.btnGo = new System.Windows.Forms.ToolStripButton();
+            this.toolStripSeparator1 = new System.Windows.Forms.ToolStripSeparator();
+            this.toolStripLabel1 = new System.Windows.Forms.ToolStripLabel();
+            this.cbPingCount = new System.Windows.Forms.ToolStripComboBox();
+            this.toolStripLabel2 = new System.Windows.Forms.ToolStripLabel();
+            this.cbWhoisServer = new System.Windows.Forms.ToolStripComboBox();
+            this.toolStripLabel3 = new System.Windows.Forms.ToolStripLabel();
+            this.cbNameserver = new System.Windows.Forms.ToolStripComboBox();
             this.menuStrip1.SuspendLayout();
             this.toolStripContainer1.ContentPanel.SuspendLayout();
             this.toolStripContainer1.TopToolStripPanel.SuspendLayout();
             this.toolStripContainer1.SuspendLayout();
             this.tabControl1.SuspendLayout();
             this.tabPage1.SuspendLayout();
+            this.toolStrip2.SuspendLayout();
             this.toolStrip1.SuspendLayout();
             this.SuspendLayout();
             // 
@@ -312,7 +323,7 @@
             this.toolStripContainer1.ContentPanel.Controls.Add(this.tabControl1);
             this.toolStripContainer1.ContentPanel.Margin = new System.Windows.Forms.Padding(3, 4, 3, 4);
             this.toolStripContainer1.ContentPanel.RenderMode = System.Windows.Forms.ToolStripRenderMode.ManagerRenderMode;
-            this.toolStripContainer1.ContentPanel.Size = new System.Drawing.Size(784, 477);
+            this.toolStripContainer1.ContentPanel.Size = new System.Drawing.Size(784, 452);
             this.toolStripContainer1.Dock = System.Windows.Forms.DockStyle.Fill;
             this.toolStripContainer1.Location = new System.Drawing.Point(0, 24);
             this.toolStripContainer1.Margin = new System.Windows.Forms.Padding(3, 4, 3, 4);
@@ -323,6 +334,7 @@
             // 
             // toolStripContainer1.TopToolStripPanel
             // 
+            this.toolStripContainer1.TopToolStripPanel.Controls.Add(this.toolStrip2);
             this.toolStripContainer1.TopToolStripPanel.Controls.Add(this.toolStrip1);
             // 
             // tabControl1
@@ -334,7 +346,7 @@
             this.tabControl1.Margin = new System.Windows.Forms.Padding(3, 4, 3, 4);
             this.tabControl1.Name = "tabControl1";
             this.tabControl1.SelectedIndex = 0;
-            this.tabControl1.Size = new System.Drawing.Size(784, 477);
+            this.tabControl1.Size = new System.Drawing.Size(784, 452);
             this.tabControl1.TabIndex = 3;
             // 
             // tabPage1
@@ -344,7 +356,7 @@
             this.tabPage1.Margin = new System.Windows.Forms.Padding(3, 4, 3, 4);
             this.tabPage1.Name = "tabPage1";
             this.tabPage1.Padding = new System.Windows.Forms.Padding(3, 4, 3, 4);
-            this.tabPage1.Size = new System.Drawing.Size(776, 451);
+            this.tabPage1.Size = new System.Drawing.Size(776, 426);
             this.tabPage1.TabIndex = 0;
             this.tabPage1.Text = "tabPage1";
             this.tabPage1.UseVisualStyleBackColor = true;
@@ -356,151 +368,171 @@
             this.richTextBox1.Margin = new System.Windows.Forms.Padding(0);
             this.richTextBox1.Name = "richTextBox1";
             this.richTextBox1.ReadOnly = true;
-            this.richTextBox1.Size = new System.Drawing.Size(770, 443);
+            this.richTextBox1.Size = new System.Drawing.Size(770, 418);
             this.richTextBox1.TabIndex = 0;
             this.richTextBox1.Text = "";
+            // 
+            // toolStrip2
+            // 
+            this.toolStrip2.Dock = System.Windows.Forms.DockStyle.None;
+            this.toolStrip2.Items.AddRange(new System.Windows.Forms.ToolStripItem[] {
+            this.cbAddress,
+            this.btnGo,
+            this.toolStripSeparator1,
+            this.toolStripLabel2,
+            this.cbPingCount,
+            this.toolStripLabel1,
+            this.cbWhoisServer,
+            this.toolStripLabel3,
+            this.cbNameserver});
+            this.toolStrip2.Location = new System.Drawing.Point(0, 0);
+            this.toolStrip2.Name = "toolStrip2";
+            this.toolStrip2.Size = new System.Drawing.Size(784, 25);
+            this.toolStrip2.Stretch = true;
+            this.toolStrip2.TabIndex = 1;
             // 
             // toolStrip1
             // 
             this.toolStrip1.Dock = System.Windows.Forms.DockStyle.None;
             this.toolStrip1.Font = new System.Drawing.Font("Segoe UI", 9F);
             this.toolStrip1.Items.AddRange(new System.Windows.Forms.ToolStripItem[] {
-            this.toolStripButton1,
-            this.toolStripButton2,
-            this.toolStripButton3,
-            this.toolStripButton4,
-            this.toolStripButton5,
-            this.toolStripButton6,
-            this.toolStripButton7,
-            this.toolStripButton8,
-            this.toolStripButton9,
-            this.toolStripButton10,
-            this.toolStripButton11,
-            this.toolStripButton12,
-            this.toolStripButton13,
+            this.btnPing,
+            this.btnDNS,
+            this.btnWhois,
+            this.btnIPBlock,
+            this.btnDig,
+            this.btnTrace,
+            this.btnFinger,
+            this.btnSMTP,
+            this.btnTime,
+            this.btnWeb,
+            this.btnAwake,
+            this.btnRBL,
+            this.btnAbuseAt,
             this.btnFoo});
-            this.toolStrip1.Location = new System.Drawing.Point(0, 0);
+            this.toolStrip1.Location = new System.Drawing.Point(0, 25);
             this.toolStrip1.Name = "toolStrip1";
             this.toolStrip1.Size = new System.Drawing.Size(784, 38);
             this.toolStrip1.Stretch = true;
             this.toolStrip1.TabIndex = 0;
             // 
-            // toolStripButton1
+            // btnPing
             // 
-            this.toolStripButton1.Image = ((System.Drawing.Image)(resources.GetObject("toolStripButton1.Image")));
-            this.toolStripButton1.ImageTransparentColor = System.Drawing.Color.Magenta;
-            this.toolStripButton1.Name = "toolStripButton1";
-            this.toolStripButton1.Size = new System.Drawing.Size(35, 35);
-            this.toolStripButton1.Text = "Ping";
-            this.toolStripButton1.TextImageRelation = System.Windows.Forms.TextImageRelation.ImageAboveText;
+            this.btnPing.Image = ((System.Drawing.Image)(resources.GetObject("btnPing.Image")));
+            this.btnPing.ImageTransparentColor = System.Drawing.Color.Magenta;
+            this.btnPing.Name = "btnPing";
+            this.btnPing.Size = new System.Drawing.Size(35, 35);
+            this.btnPing.Text = "Ping";
+            this.btnPing.TextImageRelation = System.Windows.Forms.TextImageRelation.ImageAboveText;
             // 
-            // toolStripButton2
+            // btnDNS
             // 
-            this.toolStripButton2.Image = ((System.Drawing.Image)(resources.GetObject("toolStripButton2.Image")));
-            this.toolStripButton2.ImageTransparentColor = System.Drawing.Color.Magenta;
-            this.toolStripButton2.Name = "toolStripButton2";
-            this.toolStripButton2.Size = new System.Drawing.Size(34, 35);
-            this.toolStripButton2.Text = "DNS";
-            this.toolStripButton2.TextImageRelation = System.Windows.Forms.TextImageRelation.ImageAboveText;
+            this.btnDNS.Image = ((System.Drawing.Image)(resources.GetObject("btnDNS.Image")));
+            this.btnDNS.ImageTransparentColor = System.Drawing.Color.Magenta;
+            this.btnDNS.Name = "btnDNS";
+            this.btnDNS.Size = new System.Drawing.Size(34, 35);
+            this.btnDNS.Text = "DNS";
+            this.btnDNS.TextImageRelation = System.Windows.Forms.TextImageRelation.ImageAboveText;
             // 
-            // toolStripButton3
+            // btnWhois
             // 
-            this.toolStripButton3.Image = ((System.Drawing.Image)(resources.GetObject("toolStripButton3.Image")));
-            this.toolStripButton3.ImageTransparentColor = System.Drawing.Color.Magenta;
-            this.toolStripButton3.Name = "toolStripButton3";
-            this.toolStripButton3.Size = new System.Drawing.Size(44, 35);
-            this.toolStripButton3.Text = "Whois";
-            this.toolStripButton3.TextImageRelation = System.Windows.Forms.TextImageRelation.ImageAboveText;
+            this.btnWhois.Image = ((System.Drawing.Image)(resources.GetObject("btnWhois.Image")));
+            this.btnWhois.ImageTransparentColor = System.Drawing.Color.Magenta;
+            this.btnWhois.Name = "btnWhois";
+            this.btnWhois.Size = new System.Drawing.Size(44, 35);
+            this.btnWhois.Text = "Whois";
+            this.btnWhois.TextImageRelation = System.Windows.Forms.TextImageRelation.ImageAboveText;
+            this.btnWhois.Click += new System.EventHandler(this.btnWhois_Click);
             // 
-            // toolStripButton4
+            // btnIPBlock
             // 
-            this.toolStripButton4.Image = ((System.Drawing.Image)(resources.GetObject("toolStripButton4.Image")));
-            this.toolStripButton4.ImageTransparentColor = System.Drawing.Color.Magenta;
-            this.toolStripButton4.Name = "toolStripButton4";
-            this.toolStripButton4.Size = new System.Drawing.Size(53, 35);
-            this.toolStripButton4.Text = "IP Block";
-            this.toolStripButton4.TextImageRelation = System.Windows.Forms.TextImageRelation.ImageAboveText;
+            this.btnIPBlock.Image = ((System.Drawing.Image)(resources.GetObject("btnIPBlock.Image")));
+            this.btnIPBlock.ImageTransparentColor = System.Drawing.Color.Magenta;
+            this.btnIPBlock.Name = "btnIPBlock";
+            this.btnIPBlock.Size = new System.Drawing.Size(53, 35);
+            this.btnIPBlock.Text = "IP Block";
+            this.btnIPBlock.TextImageRelation = System.Windows.Forms.TextImageRelation.ImageAboveText;
             // 
-            // toolStripButton5
+            // btnDig
             // 
-            this.toolStripButton5.Image = ((System.Drawing.Image)(resources.GetObject("toolStripButton5.Image")));
-            this.toolStripButton5.ImageTransparentColor = System.Drawing.Color.Magenta;
-            this.toolStripButton5.Name = "toolStripButton5";
-            this.toolStripButton5.Size = new System.Drawing.Size(29, 35);
-            this.toolStripButton5.Text = "Dig";
-            this.toolStripButton5.TextImageRelation = System.Windows.Forms.TextImageRelation.ImageAboveText;
+            this.btnDig.Image = ((System.Drawing.Image)(resources.GetObject("btnDig.Image")));
+            this.btnDig.ImageTransparentColor = System.Drawing.Color.Magenta;
+            this.btnDig.Name = "btnDig";
+            this.btnDig.Size = new System.Drawing.Size(29, 35);
+            this.btnDig.Text = "Dig";
+            this.btnDig.TextImageRelation = System.Windows.Forms.TextImageRelation.ImageAboveText;
             // 
-            // toolStripButton6
+            // btnTrace
             // 
-            this.toolStripButton6.Image = ((System.Drawing.Image)(resources.GetObject("toolStripButton6.Image")));
-            this.toolStripButton6.ImageTransparentColor = System.Drawing.Color.Magenta;
-            this.toolStripButton6.Name = "toolStripButton6";
-            this.toolStripButton6.Size = new System.Drawing.Size(40, 35);
-            this.toolStripButton6.Text = "Trace";
-            this.toolStripButton6.TextImageRelation = System.Windows.Forms.TextImageRelation.ImageAboveText;
+            this.btnTrace.Image = ((System.Drawing.Image)(resources.GetObject("btnTrace.Image")));
+            this.btnTrace.ImageTransparentColor = System.Drawing.Color.Magenta;
+            this.btnTrace.Name = "btnTrace";
+            this.btnTrace.Size = new System.Drawing.Size(40, 35);
+            this.btnTrace.Text = "Trace";
+            this.btnTrace.TextImageRelation = System.Windows.Forms.TextImageRelation.ImageAboveText;
             // 
-            // toolStripButton7
+            // btnFinger
             // 
-            this.toolStripButton7.Image = ((System.Drawing.Image)(resources.GetObject("toolStripButton7.Image")));
-            this.toolStripButton7.ImageTransparentColor = System.Drawing.Color.Magenta;
-            this.toolStripButton7.Name = "toolStripButton7";
-            this.toolStripButton7.Size = new System.Drawing.Size(44, 35);
-            this.toolStripButton7.Text = "Finger";
-            this.toolStripButton7.TextImageRelation = System.Windows.Forms.TextImageRelation.ImageAboveText;
+            this.btnFinger.Image = ((System.Drawing.Image)(resources.GetObject("btnFinger.Image")));
+            this.btnFinger.ImageTransparentColor = System.Drawing.Color.Magenta;
+            this.btnFinger.Name = "btnFinger";
+            this.btnFinger.Size = new System.Drawing.Size(44, 35);
+            this.btnFinger.Text = "Finger";
+            this.btnFinger.TextImageRelation = System.Windows.Forms.TextImageRelation.ImageAboveText;
             // 
-            // toolStripButton8
+            // btnSMTP
             // 
-            this.toolStripButton8.Image = ((System.Drawing.Image)(resources.GetObject("toolStripButton8.Image")));
-            this.toolStripButton8.ImageTransparentColor = System.Drawing.Color.Magenta;
-            this.toolStripButton8.Name = "toolStripButton8";
-            this.toolStripButton8.Size = new System.Drawing.Size(42, 35);
-            this.toolStripButton8.Text = "SMTP";
-            this.toolStripButton8.TextImageRelation = System.Windows.Forms.TextImageRelation.ImageAboveText;
+            this.btnSMTP.Image = ((System.Drawing.Image)(resources.GetObject("btnSMTP.Image")));
+            this.btnSMTP.ImageTransparentColor = System.Drawing.Color.Magenta;
+            this.btnSMTP.Name = "btnSMTP";
+            this.btnSMTP.Size = new System.Drawing.Size(42, 35);
+            this.btnSMTP.Text = "SMTP";
+            this.btnSMTP.TextImageRelation = System.Windows.Forms.TextImageRelation.ImageAboveText;
             // 
-            // toolStripButton9
+            // btnTime
             // 
-            this.toolStripButton9.Image = ((System.Drawing.Image)(resources.GetObject("toolStripButton9.Image")));
-            this.toolStripButton9.ImageTransparentColor = System.Drawing.Color.Magenta;
-            this.toolStripButton9.Name = "toolStripButton9";
-            this.toolStripButton9.Size = new System.Drawing.Size(38, 35);
-            this.toolStripButton9.Text = "Time";
-            this.toolStripButton9.TextImageRelation = System.Windows.Forms.TextImageRelation.ImageAboveText;
+            this.btnTime.Image = ((System.Drawing.Image)(resources.GetObject("btnTime.Image")));
+            this.btnTime.ImageTransparentColor = System.Drawing.Color.Magenta;
+            this.btnTime.Name = "btnTime";
+            this.btnTime.Size = new System.Drawing.Size(38, 35);
+            this.btnTime.Text = "Time";
+            this.btnTime.TextImageRelation = System.Windows.Forms.TextImageRelation.ImageAboveText;
             // 
-            // toolStripButton10
+            // btnWeb
             // 
-            this.toolStripButton10.Image = ((System.Drawing.Image)(resources.GetObject("toolStripButton10.Image")));
-            this.toolStripButton10.ImageTransparentColor = System.Drawing.Color.Magenta;
-            this.toolStripButton10.Name = "toolStripButton10";
-            this.toolStripButton10.Size = new System.Drawing.Size(35, 35);
-            this.toolStripButton10.Text = "Web";
-            this.toolStripButton10.TextImageRelation = System.Windows.Forms.TextImageRelation.ImageAboveText;
+            this.btnWeb.Image = ((System.Drawing.Image)(resources.GetObject("btnWeb.Image")));
+            this.btnWeb.ImageTransparentColor = System.Drawing.Color.Magenta;
+            this.btnWeb.Name = "btnWeb";
+            this.btnWeb.Size = new System.Drawing.Size(35, 35);
+            this.btnWeb.Text = "Web";
+            this.btnWeb.TextImageRelation = System.Windows.Forms.TextImageRelation.ImageAboveText;
             // 
-            // toolStripButton11
+            // btnAwake
             // 
-            this.toolStripButton11.Image = ((System.Drawing.Image)(resources.GetObject("toolStripButton11.Image")));
-            this.toolStripButton11.ImageTransparentColor = System.Drawing.Color.Magenta;
-            this.toolStripButton11.Name = "toolStripButton11";
-            this.toolStripButton11.Size = new System.Drawing.Size(46, 35);
-            this.toolStripButton11.Text = "Awake";
-            this.toolStripButton11.TextImageRelation = System.Windows.Forms.TextImageRelation.ImageAboveText;
+            this.btnAwake.Image = ((System.Drawing.Image)(resources.GetObject("btnAwake.Image")));
+            this.btnAwake.ImageTransparentColor = System.Drawing.Color.Magenta;
+            this.btnAwake.Name = "btnAwake";
+            this.btnAwake.Size = new System.Drawing.Size(46, 35);
+            this.btnAwake.Text = "Awake";
+            this.btnAwake.TextImageRelation = System.Windows.Forms.TextImageRelation.ImageAboveText;
             // 
-            // toolStripButton12
+            // btnRBL
             // 
-            this.toolStripButton12.Image = ((System.Drawing.Image)(resources.GetObject("toolStripButton12.Image")));
-            this.toolStripButton12.ImageTransparentColor = System.Drawing.Color.Magenta;
-            this.toolStripButton12.Name = "toolStripButton12";
-            this.toolStripButton12.Size = new System.Drawing.Size(31, 35);
-            this.toolStripButton12.Text = "RBL";
-            this.toolStripButton12.TextImageRelation = System.Windows.Forms.TextImageRelation.ImageAboveText;
+            this.btnRBL.Image = ((System.Drawing.Image)(resources.GetObject("btnRBL.Image")));
+            this.btnRBL.ImageTransparentColor = System.Drawing.Color.Magenta;
+            this.btnRBL.Name = "btnRBL";
+            this.btnRBL.Size = new System.Drawing.Size(31, 35);
+            this.btnRBL.Text = "RBL";
+            this.btnRBL.TextImageRelation = System.Windows.Forms.TextImageRelation.ImageAboveText;
             // 
-            // toolStripButton13
+            // btnAbuseAt
             // 
-            this.toolStripButton13.Image = ((System.Drawing.Image)(resources.GetObject("toolStripButton13.Image")));
-            this.toolStripButton13.ImageTransparentColor = System.Drawing.Color.Magenta;
-            this.toolStripButton13.Name = "toolStripButton13";
-            this.toolStripButton13.Size = new System.Drawing.Size(53, 35);
-            this.toolStripButton13.Text = "abuse@";
-            this.toolStripButton13.TextImageRelation = System.Windows.Forms.TextImageRelation.ImageAboveText;
+            this.btnAbuseAt.Image = ((System.Drawing.Image)(resources.GetObject("btnAbuseAt.Image")));
+            this.btnAbuseAt.ImageTransparentColor = System.Drawing.Color.Magenta;
+            this.btnAbuseAt.Name = "btnAbuseAt";
+            this.btnAbuseAt.Size = new System.Drawing.Size(53, 35);
+            this.btnAbuseAt.Text = "abuse@";
+            this.btnAbuseAt.TextImageRelation = System.Windows.Forms.TextImageRelation.ImageAboveText;
             // 
             // btnFoo
             // 
@@ -513,6 +545,93 @@
             this.btnFoo.TextDirection = System.Windows.Forms.ToolStripTextDirection.Horizontal;
             this.btnFoo.TextImageRelation = System.Windows.Forms.TextImageRelation.ImageAboveText;
             this.btnFoo.Click += new System.EventHandler(this.btnFoo_Click);
+            // 
+            // cbAddress
+            // 
+            this.cbAddress.AutoCompleteSource = System.Windows.Forms.AutoCompleteSource.RecentlyUsedList;
+            this.cbAddress.Name = "cbAddress";
+            this.cbAddress.Size = new System.Drawing.Size(121, 25);
+            this.cbAddress.ToolTipText = "Address to look at";
+            this.cbAddress.KeyDown += new System.Windows.Forms.KeyEventHandler(this.cbAddress_KeyDown);
+            // 
+            // btnGo
+            // 
+            this.btnGo.DisplayStyle = System.Windows.Forms.ToolStripItemDisplayStyle.Image;
+            this.btnGo.Image = ((System.Drawing.Image)(resources.GetObject("btnGo.Image")));
+            this.btnGo.ImageTransparentColor = System.Drawing.Color.Magenta;
+            this.btnGo.Name = "btnGo";
+            this.btnGo.Size = new System.Drawing.Size(23, 22);
+            this.btnGo.Text = "GO!";
+            // 
+            // toolStripSeparator1
+            // 
+            this.toolStripSeparator1.Name = "toolStripSeparator1";
+            this.toolStripSeparator1.Size = new System.Drawing.Size(6, 25);
+            // 
+            // toolStripLabel1
+            // 
+            this.toolStripLabel1.DisplayStyle = System.Windows.Forms.ToolStripItemDisplayStyle.Image;
+            this.toolStripLabel1.Image = ((System.Drawing.Image)(resources.GetObject("toolStripLabel1.Image")));
+            this.toolStripLabel1.ImageScaling = System.Windows.Forms.ToolStripItemImageScaling.None;
+            this.toolStripLabel1.Name = "toolStripLabel1";
+            this.toolStripLabel1.Size = new System.Drawing.Size(16, 22);
+            this.toolStripLabel1.Text = "Whois Server";
+            this.toolStripLabel1.ToolTipText = "Whois Server";
+            // 
+            // cbPingCount
+            // 
+            this.cbPingCount.Name = "cbPingCount";
+            this.cbPingCount.Size = new System.Drawing.Size(75, 25);
+            // 
+            // toolStripLabel2
+            // 
+            this.toolStripLabel2.DisplayStyle = System.Windows.Forms.ToolStripItemDisplayStyle.Image;
+            this.toolStripLabel2.Image = ((System.Drawing.Image)(resources.GetObject("toolStripLabel2.Image")));
+            this.toolStripLabel2.ImageScaling = System.Windows.Forms.ToolStripItemImageScaling.None;
+            this.toolStripLabel2.Name = "toolStripLabel2";
+            this.toolStripLabel2.Size = new System.Drawing.Size(16, 22);
+            this.toolStripLabel2.Text = "Ping Count";
+            this.toolStripLabel2.ToolTipText = "Ping Count";
+            // 
+            // cbWhoisServer
+            // 
+            this.cbWhoisServer.AutoCompleteSource = System.Windows.Forms.AutoCompleteSource.ListItems;
+            this.cbWhoisServer.Items.AddRange(new object[] {
+            "whois.iana.org",
+            "whois.internic.net",
+            "whois.arin.net",
+            "whois.nic.am",
+            "whois.aunic.net",
+            "whois.nic.ch",
+            "whois.nic.fr",
+            "whois.nic.gov",
+            "whois.apnic.net",
+            "whois.nic.li",
+            "whois.nic.mx",
+            "domain-registry.nl",
+            "whois.ripn.net",
+            "nanos.arnes.si",
+            "whois.thnic.net",
+            "whois.ja.net",
+            "nii-server.isi.edu"});
+            this.cbWhoisServer.Name = "cbWhoisServer";
+            this.cbWhoisServer.Size = new System.Drawing.Size(121, 25);
+            // 
+            // toolStripLabel3
+            // 
+            this.toolStripLabel3.DisplayStyle = System.Windows.Forms.ToolStripItemDisplayStyle.Image;
+            this.toolStripLabel3.Image = ((System.Drawing.Image)(resources.GetObject("toolStripLabel3.Image")));
+            this.toolStripLabel3.ImageScaling = System.Windows.Forms.ToolStripItemImageScaling.None;
+            this.toolStripLabel3.Name = "toolStripLabel3";
+            this.toolStripLabel3.Size = new System.Drawing.Size(16, 22);
+            this.toolStripLabel3.Text = "Nameserver";
+            this.toolStripLabel3.ToolTipText = "Nameserver for DNS, Dig, and Zone Transfer";
+            // 
+            // cbNameserver
+            // 
+            this.cbNameserver.AutoCompleteSource = System.Windows.Forms.AutoCompleteSource.RecentlyUsedList;
+            this.cbNameserver.Name = "cbNameserver";
+            this.cbNameserver.Size = new System.Drawing.Size(121, 25);
             // 
             // MainForm
             // 
@@ -527,6 +646,7 @@
             this.Margin = new System.Windows.Forms.Padding(3, 4, 3, 4);
             this.MinimumSize = new System.Drawing.Size(640, 480);
             this.Name = "MainForm";
+            this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
             this.Text = "Marlowe";
             this.menuStrip1.ResumeLayout(false);
             this.menuStrip1.PerformLayout();
@@ -537,6 +657,8 @@
             this.toolStripContainer1.PerformLayout();
             this.tabControl1.ResumeLayout(false);
             this.tabPage1.ResumeLayout(false);
+            this.toolStrip2.ResumeLayout(false);
+            this.toolStrip2.PerformLayout();
             this.toolStrip1.ResumeLayout(false);
             this.toolStrip1.PerformLayout();
             this.ResumeLayout(false);
@@ -564,19 +686,19 @@
         private System.Windows.Forms.StatusStrip statusStrip1;
         private System.Windows.Forms.ToolStripContainer toolStripContainer1;
         private System.Windows.Forms.ToolStrip toolStrip1;
-        private System.Windows.Forms.ToolStripButton toolStripButton1;
-        private System.Windows.Forms.ToolStripButton toolStripButton2;
-        private System.Windows.Forms.ToolStripButton toolStripButton3;
-        private System.Windows.Forms.ToolStripButton toolStripButton4;
-        private System.Windows.Forms.ToolStripButton toolStripButton5;
-        private System.Windows.Forms.ToolStripButton toolStripButton6;
-        private System.Windows.Forms.ToolStripButton toolStripButton7;
-        private System.Windows.Forms.ToolStripButton toolStripButton8;
-        private System.Windows.Forms.ToolStripButton toolStripButton9;
-        private System.Windows.Forms.ToolStripButton toolStripButton10;
-        private System.Windows.Forms.ToolStripButton toolStripButton11;
-        private System.Windows.Forms.ToolStripButton toolStripButton12;
-        private System.Windows.Forms.ToolStripButton toolStripButton13;
+        private System.Windows.Forms.ToolStripButton btnPing;
+        private System.Windows.Forms.ToolStripButton btnDNS;
+        private System.Windows.Forms.ToolStripButton btnWhois;
+        private System.Windows.Forms.ToolStripButton btnIPBlock;
+        private System.Windows.Forms.ToolStripButton btnDig;
+        private System.Windows.Forms.ToolStripButton btnTrace;
+        private System.Windows.Forms.ToolStripButton btnFinger;
+        private System.Windows.Forms.ToolStripButton btnSMTP;
+        private System.Windows.Forms.ToolStripButton btnTime;
+        private System.Windows.Forms.ToolStripButton btnWeb;
+        private System.Windows.Forms.ToolStripButton btnAwake;
+        private System.Windows.Forms.ToolStripButton btnRBL;
+        private System.Windows.Forms.ToolStripButton btnAbuseAt;
         private System.Windows.Forms.TabControl tabControl1;
         private System.Windows.Forms.TabPage tabPage1;
         private System.Windows.Forms.RichTextBox richTextBox1;
@@ -595,6 +717,16 @@
         private System.Windows.Forms.ToolStripMenuItem blacklistToolStripMenuItem;
         private System.Windows.Forms.ToolStripMenuItem abuseLookupToolStripMenuItem;
         private System.Windows.Forms.ToolStripButton btnFoo;
+        private System.Windows.Forms.ToolStrip toolStrip2;
+        private System.Windows.Forms.ToolStripComboBox cbAddress;
+        private System.Windows.Forms.ToolStripButton btnGo;
+        private System.Windows.Forms.ToolStripSeparator toolStripSeparator1;
+        private System.Windows.Forms.ToolStripLabel toolStripLabel1;
+        private System.Windows.Forms.ToolStripComboBox cbPingCount;
+        private System.Windows.Forms.ToolStripLabel toolStripLabel2;
+        private System.Windows.Forms.ToolStripComboBox cbWhoisServer;
+        private System.Windows.Forms.ToolStripLabel toolStripLabel3;
+        private System.Windows.Forms.ToolStripComboBox cbNameserver;
     }
 }
 

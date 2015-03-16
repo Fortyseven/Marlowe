@@ -15,6 +15,7 @@ namespace Marlowe
         public MainForm()
         {
             InitializeComponent();
+            cbWhoisServer.SelectedIndex = 0;
         }
 
         private void exitToolStripMenuItem_Click( object sender, EventArgs e )
@@ -24,20 +25,6 @@ namespace Marlowe
 
         private void btnFoo_Click( object sender, EventArgs e )
         {
-            RichTextBox tab = NewTab();
-
-            try {
-                Tools.Whois.Get( "foo.com", cb => {
-                    tab.SynchronizedInvoke( () => {
-                        tab.AppendText("received response");
-                        TcpClient remote = (TcpClient)cb.AsyncState;
-                        tab.AppendText( remote.GetStream().ToString());
-                    } );
-                } );
-            }
-            catch ( Exception ex ) {
-                tab.AppendText( "EXCEPTION: " + ex.Message );
-            }
         }
 
         //private void FooCallback( IAsyncResult res )
@@ -55,6 +42,39 @@ namespace Marlowe
             tabControl1.Controls.Add( newtabpage );
             tabControl1.SelectedTab = newtabpage;
             return rtb;
+        }
+
+        private void btnWhois_Click( object sender, EventArgs e )
+        {
+            RichTextBox tab = NewTab();
+
+            try {
+                Tools.Whois.Get( "foo.com", cb => {
+                    tab.SynchronizedInvoke( () => {
+                        tab.AppendText( "received response" );
+                        TcpClient remote = (TcpClient)cb.AsyncState;
+                        tab.AppendText( remote.GetStream().ToString() );
+                    } );
+                } );
+            }
+            catch ( Exception ex ) {
+                tab.AppendText( "EXCEPTION: " + ex.Message );
+            }
+        }
+
+        private void cbAddress_KeyDown( object sender, KeyEventArgs e )
+        {
+            if ( e.KeyCode == Keys.Enter )
+                DoDefaultOperation();
+        }
+
+        /// <summary>
+        /// This will take the address in the cbAddress combo box and determine a default operation
+        /// for the value given (ip block for ip's, whois for domains, etc.)
+        /// </summary>
+        private void DoDefaultOperation()
+        {
+            throw new NotImplementedException();
         }
     }
 }
