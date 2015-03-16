@@ -45,21 +45,19 @@ namespace Marlowe.Tools
         public const string DEFAULT_SERVER = "whois.iana.org";
         public const int WHOIS_PORT = 43;
 
-        static public void Get( string query, AsyncCallback ar )
+        static public void Get( string query, string whois_server, AsyncCallback ar )
         {
-            string server_host = DEFAULT_SERVER;
-
             //TcpClient tcp = new TcpClient();
             //tcp.BeginConnect(server_host, WHOIS_PORT, new AsyncCallback(), )
 
             TcpClient tcp = new TcpClient();
-            IPAddress ip = Dns.GetHostEntry( server_host ).AddressList[ 0 ];
+            IPAddress ip = Dns.GetHostEntry( whois_server ).AddressList[ 0 ];
             IPEndPoint ip_end_point = new IPEndPoint( ip, WHOIS_PORT );
 
             tcp.Connect( ip_end_point );
             var stream = tcp.GetStream();
 
-            stream.BeginWrite( GetBytes( "foo.com" ), 0, 7, ar, null );
+            stream.BeginWrite( GetBytes( query ), 0, query.Length - 1, ar, null );
         }
 
         private static void WhoisResponseCallback( IAsyncResult ar )

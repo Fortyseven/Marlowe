@@ -1,9 +1,11 @@
-﻿using System;
+﻿using Marlowe.Properties;
+using System;
 using System.Collections.Generic;
 using System.ComponentModel;
 using System.Data;
 using System.Drawing;
 using System.Linq;
+using System.Net;
 using System.Net.Sockets;
 using System.Text;
 using System.Windows.Forms;
@@ -12,10 +14,26 @@ namespace Marlowe
 {
     public partial class MainForm : Form
     {
+        public enum ToolType
+        {
+            PING,
+            DNS,
+            WHOIS,
+            IPBLOCK,
+            DIG,
+            TRACE,
+            FINGER,
+            SMTP,
+            TIME,
+            WEB,
+            AWAKE,
+            RBL,
+            ABUSE
+        }
+
         public MainForm()
         {
             InitializeComponent();
-            cbWhoisServer.SelectedIndex = 0;
         }
 
         private void exitToolStripMenuItem_Click( object sender, EventArgs e )
@@ -27,15 +45,29 @@ namespace Marlowe
         {
         }
 
-        //private void FooCallback( IAsyncResult res )
-        //{
-        //    Console.WriteLine( res.ToString() );
-        //}
-
-        private RichTextBox NewTab()
+        private RichTextBox NewTab( ToolType tool_type, string value )
         {
+            int imagelist_index = 0;
+            string tool_name = "";
+
+            switch ( tool_type ) {
+                case ToolType.WHOIS:
+                    imagelist_index = 0;
+                    tool_name = "Whois";
+                    break;
+                case ToolType.PING:
+                    imagelist_index = 1;
+                    tool_name = "Ping";
+                    break;
+                case ToolType.DNS:
+                    imagelist_index = 2;
+                    tool_name = "DNS";
+                    break;
+            }
             // TODO: Assign icon based on task tab has
-            TabPage newtabpage = new TabPage( "FooTab" );
+            TabPage newtabpage = new TabPage();
+            newtabpage.ImageIndex = imagelist_index;
+            newtabpage.Text = value + " [" + tool_name + "]";
             RichTextBox rtb = new RichTextBox();
             rtb.Dock = DockStyle.Fill;
             newtabpage.Controls.Add( rtb );
@@ -46,20 +78,7 @@ namespace Marlowe
 
         private void btnWhois_Click( object sender, EventArgs e )
         {
-            RichTextBox tab = NewTab();
-
-            try {
-                Tools.Whois.Get( "foo.com", cb => {
-                    tab.SynchronizedInvoke( () => {
-                        tab.AppendText( "received response" );
-                        TcpClient remote = (TcpClient)cb.AsyncState;
-                        tab.AppendText( remote.GetStream().ToString() );
-                    } );
-                } );
-            }
-            catch ( Exception ex ) {
-                tab.AppendText( "EXCEPTION: " + ex.Message );
-            }
+            LookAtWhois( cbAddress.Text.Trim() );
         }
 
         private void cbAddress_KeyDown( object sender, KeyEventArgs e )
@@ -74,7 +93,69 @@ namespace Marlowe
         /// </summary>
         private void DoDefaultOperation()
         {
-            throw new NotImplementedException();
+            string value = cbAddress.Text.Trim();
+            if ( value.Length == 0 ) {
+                // nothing to do
+                return;
+            }
+            try {
+                IPAddress.Parse( value );
+                LookAtIPBlock( value );
+                return;
+            }
+            catch ( Exception e ) {
+                // Eat it, we're just checking if this is valid
+            }
+            try {
+                if ( Dns.GetHostByName( value ) != null ) {
+                    LookAtWhois( value );
+                    return;
+                }
+            }
+            catch ( Exception e ) {
+                // Eat it, we're just checking if this is valid
+            }
+
+            MessageBox.Show( "Sorry, I don't know what to do with \"" + value + "\"" );
+        }
+
+        /// <summary>
+        /// Performs a whois lookup on a given value
+        /// </summary>
+        /// <param name="value"></param>
+        private void LookAtWhois( string value )
+        {
+            RichTextBox tab = NewTab( ToolType.WHOIS, value );
+
+            try {
+                Tools.Whois.Get( "foo.com", cbWhoisServer.Text.Trim(),
+                    cb => {
+                        tab.SynchronizedInvoke( () => {
+                            tab.AppendText( "received response" );
+                            TcpClient remote = (TcpClient)cb.AsyncState;
+                            tab.AppendText( remote.GetStream().ToString() );
+                        } );
+                    } );
+            }
+            catch ( Exception ex ) {
+                tab.AppendText( "EXCEPTION: " + ex.Message );
+            }
+        }
+
+        /// <summary>
+        /// Performs an IPBlock lookup on a given value
+        /// </summary>
+        /// <param name="value"></param>
+        private void LookAtIPBlock( string value )
+        {
+            MessageBox.Show( "Would have looked at: " + value );
+            //throw new NotImplementedException();
+        }
+
+        private void MainForm_Shown( object sender, EventArgs e )
+        {
+            cbWhoisServer.SelectedIndex = 0;
+            cbAddress.Focus();
         }
     }
 }
